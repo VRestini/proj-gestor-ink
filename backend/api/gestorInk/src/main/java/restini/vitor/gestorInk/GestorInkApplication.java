@@ -1,4 +1,4 @@
-package restini.vitor.gestor_ink;
+package restini.vitor.gestorInk;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
