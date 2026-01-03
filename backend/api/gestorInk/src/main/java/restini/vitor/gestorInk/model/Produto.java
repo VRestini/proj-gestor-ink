@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -21,7 +24,18 @@ public class Produto {
     @Column(name = "validade", nullable = false)
     private Boolean possuiValidade;
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "fkCategoria")
-    private Categoria fkCategoria;
+    @JoinColumn(name = "fkCategoria")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "produto",cascade = CascadeType.ALL)
+    private List<Item> itens = new ArrayList<>();
+
+    public Produto(Integer id, String nome, String descricao, Boolean possuiValidade) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.possuiValidade = possuiValidade;
+    }
+
 
 }

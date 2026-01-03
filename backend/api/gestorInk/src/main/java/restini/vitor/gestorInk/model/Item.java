@@ -1,9 +1,13 @@
 package restini.vitor.gestorInk.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tbl_item")
 public class Item {
@@ -19,7 +23,14 @@ public class Item {
     @Column(name = "valor", nullable = false)
     private Float valor;
     @ManyToOne (fetch = FetchType.LAZY)
-    @Column(name = "fkProduto")
-    private Produto fkProduto;
+    @JoinColumn(name = "fkProduto")
+    private Produto produto;
 
+    public Item(Integer id, Date dtEntrada, Date dtSaida, Date dtValidade, Float valor) {
+        this.id = id;
+        this.dtEntrada = dtEntrada;
+        this.dtSaida = dtSaida;
+        this.dtValidade = dtValidade;
+        this.valor = valor;
+    }
 }
