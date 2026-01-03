@@ -17,7 +17,7 @@ public class Categoria {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nome", nullable = false,length = 50)
+    @Column(name = "nome", nullable = false,length = 50, unique = true)
     private String nome;
 
     @OneToMany(mappedBy = "categoria", cascade = {CascadeType.PERSIST, CascadeType.MERGE})

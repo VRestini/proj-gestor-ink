@@ -14,16 +14,18 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "dtEntrada", nullable = false)
+    @Column(name = "dt_entrada", nullable = false)
     private Date dtEntrada;
-    @Column(name = "dtSaida", nullable = false)
+    @Column(name = "dt_saida", nullable = false)
     private Date dtSaida;
-    @Column(name = "dtEntrada")
+    @Column(name = "dt_entrada")
     private Date dtValidade;
+    @Column(name = "se_usado")
+    private Boolean seUsado;
     @Column(name = "valor", nullable = false)
     private Float valor;
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkProduto")
+    @JoinColumn(name = "fk_produto")
     private Produto produto;
 
     public Item(Integer id, Date dtEntrada, Date dtSaida, Date dtValidade, Float valor) {
