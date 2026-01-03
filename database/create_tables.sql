@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS tbl_item(
 	dtEntrada DATE NOT NULL,
 	dtSaida DATE,
 	dtValidade DATE,
-	valor DECIMAL(6,2),==
+	valor DECIMAL(6,2),
 	fkProduto INT,
 	FOREIGN KEY (fkProduto) REFERENCES tbl_produto(id);	
 );
